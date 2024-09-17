@@ -5,11 +5,13 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { initialState } from 'app/auth/_state/roles.reducer';
 import { selectRoleFeature } from 'app/auth/_state/roles.selectors';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, MatButtonModule, MatMenuModule],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })

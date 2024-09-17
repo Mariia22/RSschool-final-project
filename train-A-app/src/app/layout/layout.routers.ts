@@ -66,10 +66,6 @@ export const layoutRoutes: Routes = [
       },
       {
         path: 'admin-page',
-        loadComponent: () =>
-          import('../admin-overview/pages/admin-overview-page/admin-overview-page.component').then(
-            (m) => m.AdminOverviewPageComponent,
-          ),
         canActivate: [IsAuthorizedGuard],
         data: {
           role: ['manager'],

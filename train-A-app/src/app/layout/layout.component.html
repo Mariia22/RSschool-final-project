@@ -14,7 +14,12 @@
       <a [routerLink]="['/signup']" routerLinkActive="active">Sign up</a>
     </div>
     <div *ngIf="isAdmin">
-      <a [routerLink]="['/admin-page']" routerLinkActive="active">Admin</a>
+      <a [matMenuTriggerFor]="menu" routerLinkActive="active">Admin</a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/admin-page/stations']">Stations</button>
+        <button mat-menu-item [routerLink]="['/admin-page/carriages']">Carriages</button>
+        <button mat-menu-item [routerLink]="['/admin-page/routes']">Routes</button>
+      </mat-menu>
     </div>
   </nav>
 
