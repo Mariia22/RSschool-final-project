@@ -14,8 +14,6 @@ import { Subscription } from 'rxjs';
 import { RoleService } from 'app/auth/services/role.service';
 import { Store } from '@ngrx/store';
 import { rolesListActions } from 'app/auth/_state/roles.actions';
-import { CarriageFacade } from 'app/admin-overview/_state/carriage/carriage.facade';
-import { StationFacade } from 'app/admin-overview/_state/station/station.facade';
 import { noSpaceValidator } from '../../../shared/utils/validators';
 
 @Component({
@@ -41,10 +39,6 @@ export class SigninComponent implements OnInit, OnDestroy {
   private roleService = inject(RoleService);
 
   private store: Store<{ roleState: string }> = inject(Store);
-
-  private carriageFacade = inject(CarriageFacade);
-
-  private stationFacade = inject(StationFacade);
 
   public loginForm!: FormGroup<{
     email: FormControl<string>;
@@ -93,10 +87,6 @@ export class SigninComponent implements OnInit, OnDestroy {
           localStorage.setItem('token', response.token);
           this.roleService.isAuthorized().subscribe((val) => {
             this.store.dispatch(rolesListActions.changeRole({ role: val }));
-            if (val === 'manager') {
-              this.carriageFacade.loadCarriage();
-              this.stationFacade.loadStation();
-            }
           });
           this.router.navigateByUrl('/');
         },

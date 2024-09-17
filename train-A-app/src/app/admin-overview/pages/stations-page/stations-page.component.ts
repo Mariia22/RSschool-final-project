@@ -63,6 +63,7 @@ export class StationsPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.stationFacade.loadStation();
     this.error$.pipe(takeUntil(this.destroy$)).subscribe((error) => {
       if (error) {
         this.notificationService.openFailureSnackBar(error);

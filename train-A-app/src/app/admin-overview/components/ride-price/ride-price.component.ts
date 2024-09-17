@@ -40,6 +40,7 @@ export class RidePriceComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   public ngOnInit(): void {
+    this.carriageFacade.loadCarriage();
     this.carriageNames$ = this.carriage$.pipe(
       map((carriages) => {
         return Object.keys(this.price)

@@ -65,6 +65,8 @@ export class RouteListComponent implements OnInit, OnDestroy {
           tap((routes) => {
             if (!routes || routes.length === 0) {
               this.routeFacade.loadRoutes();
+              this.carriageFacade.loadCarriage();
+              this.stationFacade.loadStation();
             }
           }),
         )

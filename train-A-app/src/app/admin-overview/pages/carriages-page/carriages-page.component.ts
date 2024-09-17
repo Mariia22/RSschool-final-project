@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CarriageFacade } from 'app/admin-overview/_state/carriage/carriage.facade';
 import { CarriagesItemComponent } from 'app/admin-overview/components/carriages-item/carriages-item.component';
 import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
@@ -25,7 +25,7 @@ import { CarriagesPanelComponent } from '../../components/carriages-panel/carria
   templateUrl: './carriages-page.component.html',
   styleUrl: './carriages-page.component.scss',
 })
-export class CarriagesPageComponent {
+export class CarriagesPageComponent implements OnInit {
   private carriageFacade = inject(CarriageFacade);
 
   private panelService = inject(CarriagesPanelService);
@@ -37,6 +37,10 @@ export class CarriagesPageComponent {
   readonly isLoading$ = this.carriageFacade.isLoading$;
 
   readonly formState$ = this.panelService.panelState$;
+
+  public ngOnInit(): void {
+    this.carriageFacade.loadCarriage();
+  }
 
   public openForm() {
     this.panelService.togglePanel('panel', 'create');
