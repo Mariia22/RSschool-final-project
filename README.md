@@ -23,7 +23,7 @@ The primary goal of this project is to develop a platform for managing train tri
 
 ## Deploy
 
-[TrainApp Deployment](https://train-a-app.netlify.app/)
+[TrainApp Deployment](https://trainsite.netlify.app/)
 
 The manager and the root administrator can enter the system with:  
 **Email**: <admin@admin.com>  
