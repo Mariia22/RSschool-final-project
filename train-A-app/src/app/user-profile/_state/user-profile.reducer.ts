@@ -3,7 +3,7 @@ import { initialUserProfile, UserProfileState } from './user-profile.state';
 import { userProfileActions } from './user-profile.actions';
 
 export const userProfileFeature = createFeature({
-  name: 'user',
+  name: 'profile',
   reducer: createReducer<UserProfileState>(
     initialUserProfile,
     on(
