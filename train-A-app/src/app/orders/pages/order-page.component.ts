@@ -10,6 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { Station } from 'app/admin-overview/models/station';
 import { UserProfileFacade } from 'app/user-profile/_state/user-profile.facade';
 import { UserProfile } from 'app/user-profile/models/user-profile';
+import { NotificationService } from 'app/core/services/notification/notification.service';
 import { OrderItemComponent } from '../components/order-item/order-item.component';
 import { Order } from '../models/order';
 
@@ -48,7 +49,10 @@ export class OrderPageComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
 
+  constructor(private notificationService: NotificationService) {}
+
   ngOnInit(): void {
+    this.notificationService.openFailureSnackBar('The service is in development');
     this.stationFacade.loadStation();
     this.stationFacade.station$.pipe(takeUntil(this.destroy$)).subscribe((stations: Station[]) => {
       this.stationList = stations;

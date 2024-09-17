@@ -13,6 +13,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CarriageFacade } from 'app/admin-overview/_state/carriage/carriage.facade';
+import { NotificationService } from 'app/core/services/notification/notification.service';
 import { CarriageSchemaComponent } from '../carriage-schema/carriage-schema.component';
 
 @Component({
@@ -80,6 +81,7 @@ export class TripComponent implements OnInit, OnDestroy {
     private carriageFacade: CarriageFacade,
     private dialog: MatDialog,
     private router: Router,
+    private notificationService: NotificationService,
   ) {
     this.carriageFacade.loadCarriage();
     this.carriageFacade.carriage$.subscribe((cs) => {
@@ -99,6 +101,7 @@ export class TripComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.notificationService.openFailureSnackBar('The service is in development');
     this.rideId = Number(this.route.snapshot.paramMap.get('rideId')) || 0;
     this.route.queryParams.subscribe((params) => {
       this.fromStationId = Number(params['from']) || 0;
