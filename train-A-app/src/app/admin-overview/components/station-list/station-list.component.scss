@@ -1,0 +1,45 @@
+@import '@styles/variables.scss';
+
+.stations {
+  margin: 1.25rem 0;
+  border-color: $text;
+  position: relative;
+
+  &__header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.625rem;
+    position: relative;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+
+    &__container {
+      &__text-title {
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+    }
+
+    &__delete-btn {
+      position: absolute;
+      top: 0.94rem;
+      right: 0.94rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin-left: 0.625rem;
+
+      mat-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

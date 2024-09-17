@@ -1,0 +1,55 @@
+@import '@styles/variables.scss';
+
+.item {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 1px 1px $divider;
+
+  &__header {
+    display: flex;
+    padding: 15px 35px 0 15px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__subheader {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__button {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__icon {
+    color: $text;
+    cursor: pointer;
+  }
+
+  &__list {
+    margin: 10px 0;
+  }
+}

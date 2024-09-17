@@ -1,0 +1,33 @@
+<div *ngIf="role$ | async as role">
+  <nav class="nav">
+    <div>
+      <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+      <a
+        *ngIf="role.toLowerCase().includes('manager') || role.toLowerCase().includes('user')"
+        [routerLink]="['/profile']"
+        routerLinkActive="active"
+        >Profile</a
+      >
+      <a
+        *ngIf="role.toLowerCase().includes('manager') || role.toLowerCase().includes('user')"
+        [routerLink]="['/orders']"
+        routerLinkActive="active"
+        >{{ role.toLowerCase().includes('manager') ? 'Orders' : 'My orders' }}</a
+      >
+    </div>
+    <div *ngIf="role.toLowerCase().includes('guest')">
+      <a [routerLink]="['/signin']" routerLinkActive="active">Sign in</a>
+      <a [routerLink]="['/signup']" routerLinkActive="active">Sign up</a>
+    </div>
+    <div *ngIf="role.toLowerCase().includes('manager')">
+      <a [matMenuTriggerFor]="menu" routerLinkActive="active">Admin</a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/admin-page/stations']">Stations</button>
+        <button mat-menu-item [routerLink]="['/admin-page/carriages']">Carriages</button>
+        <button mat-menu-item [routerLink]="['/admin-page/routes']">Routes</button>
+      </mat-menu>
+    </div>
+  </nav>
+
+  <router-outlet />
+</div>
