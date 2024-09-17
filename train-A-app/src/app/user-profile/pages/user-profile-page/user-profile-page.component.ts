@@ -121,6 +121,7 @@ export class UserProfilePageComponent implements OnInit, OnDestroy {
   }
 
   onLogout(): void {
+    localStorage.removeItem('token');
     this.userProfileFacade.logoutUserProfile();
     this.roleService.isAuthorized().subscribe((val) => {
       this.store.dispatch(rolesListActions.changeRole({ role: val }));

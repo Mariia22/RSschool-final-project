@@ -82,7 +82,6 @@ export class UserProfileEffects {
     return this.actions$.pipe(
       ofType(userProfileActions.logoutUserProfileSuccess),
       mergeMap(() => {
-        localStorage.removeItem('token');
         return of(userProfileActions.deleteUserProfileInStore());
       }),
     );

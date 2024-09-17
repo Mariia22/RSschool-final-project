@@ -1,19 +1,25 @@
-<div>
+<div *ngIf="role$ | async as role">
   <nav class="nav">
     <div>
       <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
-      <a *ngIf="isAdmin || isClient" [routerLink]="['/profile']" routerLinkActive="active"
+      <a
+        *ngIf="role.toLowerCase().includes('manager') || role.toLowerCase().includes('user')"
+        [routerLink]="['/profile']"
+        routerLinkActive="active"
         >Profile</a
       >
-      <a *ngIf="isAdmin || isClient" [routerLink]="['/orders']" routerLinkActive="active">{{
-        isAdmin ? 'Orders' : 'My orders'
-      }}</a>
+      <a
+        *ngIf="role.toLowerCase().includes('manager') || role.toLowerCase().includes('user')"
+        [routerLink]="['/orders']"
+        routerLinkActive="active"
+        >{{ role.toLowerCase().includes('manager') ? 'Orders' : 'My orders' }}</a
+      >
     </div>
-    <div *ngIf="isGuest">
+    <div *ngIf="role.toLowerCase().includes('guest')">
       <a [routerLink]="['/signin']" routerLinkActive="active">Sign in</a>
       <a [routerLink]="['/signup']" routerLinkActive="active">Sign up</a>
     </div>
-    <div *ngIf="isAdmin">
+    <div *ngIf="role.toLowerCase().includes('manager')">
       <a [matMenuTriggerFor]="menu" routerLinkActive="active">Admin</a>
       <mat-menu #menu="matMenu">
         <button mat-menu-item [routerLink]="['/admin-page/stations']">Stations</button>
