@@ -1,62 +1,66 @@
 <div>
   <form [formGroup]="carriageForm" class="carriage__form">
-    <div class="carriage__form__field">
-      <p class="form__label">Name</p>
-      <input class="form__input" formControlName="name" />
-      <div class="form__error-container">
-        <p class="form__error" *ngIf="this.isDuplicateName">
-          The carriage with this name already exists
-        </p>
-      </div>
+    <mat-form-field class="carriage__form__field">
+      <mat-label>Name</mat-label>
+      <input
+        type="text"
+        placeholder="Carriage's name"
+        formControlName="name"
+        matInput
+        aria-label="Name"
+      />
+      <mat-hint *ngIf="this.isDuplicateName" class="form__error"
+        >The carriage with this name already exists</mat-hint
+      >
+    </mat-form-field>
+    <div class="form__error-container">
+      <p class="form__error" *ngIf="this.isDuplicateName">
+        The carriage with this name already exists
+      </p>
     </div>
-    <div class="carriage__form__field">
-      <p class="form__label">Rows</p>
+    <mat-form-field class="carriage__form__field">
+      <mat-label>Rows</mat-label>
       <input
         type="number"
-        class="form__input carriage__input"
         formControlName="rows"
         placeholder="*max 50 rows"
+        matInput
+        aria-label="Rows"
       />
-      <div class="form__error-container">
-        <p *ngIf="rows?.invalid && rows?.touched && rows?.hasError('max')" class="form__error">
-          max 50 rows
-        </p>
-      </div>
-    </div>
-    <div class="carriage__form__field">
-      <p class="form__label">Left seats</p>
+      <mat-hint *ngIf="rows?.invalid && rows?.touched && rows?.hasError('max')" class="form__error"
+        >max 50 rows</mat-hint
+      >
+    </mat-form-field>
+    <mat-form-field class="carriage__form__field">
+      <mat-label>Left seats</mat-label>
       <input
         type="number"
-        class="form__input"
         formControlName="leftSeats"
         placeholder="*max 5 seats"
+        matInput
+        aria-label="Left seats"
       />
-      <div class="form__error-container">
-        <p
-          *ngIf="leftSeats?.invalid && leftSeats?.touched && leftSeats?.hasError('max')"
-          class="form__error"
-        >
-          max 5 seats
-        </p>
-      </div>
-    </div>
-    <div class="carriage__form__field">
-      <p class="form__label">Right seats</p>
+      <mat-hint
+        *ngIf="leftSeats?.invalid && leftSeats?.touched && leftSeats?.hasError('max')"
+        class="form__error"
+        >max 5 seats</mat-hint
+      >
+    </mat-form-field>
+    <mat-form-field class="carriage__form__field">
+      <mat-label>Right seats</mat-label>
       <input
         type="number"
-        class="form__input"
         formControlName="rightSeats"
         placeholder="*max 5 seats"
+        matInput
+        aria-label="Right seats"
       />
-      <div class="form__error-container">
-        <p
-          *ngIf="rightSeats?.invalid && rightSeats?.touched && rightSeats?.hasError('max')"
-          class="form__error"
-        >
-          max 5 seats
-        </p>
-      </div>
-    </div>
+    </mat-form-field>
+    <mat-hint
+      *ngIf="rightSeats?.invalid && rightSeats?.touched && rightSeats?.hasError('max')"
+      class="form__error"
+      >max 5 seats</mat-hint
+    >
     <button
       class="carriage__form__button"
       mat-flat-button

@@ -19,6 +19,7 @@
       type="password"
       class="form__input"
       [class.form__input--error]="isControlInvalid('password')"
+      placeholder="Password must be at least 8 characters long"
     />
     @if (isControlInvalid('password') && formWasFilled) {
       <p class="form__error">{{ getErrorMessage('password') }}</p>
@@ -30,6 +31,7 @@
       type="password"
       class="form__input"
       [class.form__input--error]="isRepeatPassInvalid"
+      placeholder="Password must be at least 8 characters long"
     />
     @if (isRepeatPassInvalid) {
       <p class="form__error">Passwords do not match</p>

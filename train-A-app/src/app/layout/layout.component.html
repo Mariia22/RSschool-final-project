@@ -22,9 +22,15 @@
     <div *ngIf="role.toLowerCase().includes('manager')">
       <a [matMenuTriggerFor]="menu" routerLinkActive="active">Admin</a>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/admin-page/stations']">Stations</button>
-        <button mat-menu-item [routerLink]="['/admin-page/carriages']">Carriages</button>
-        <button mat-menu-item [routerLink]="['/admin-page/routes']">Routes</button>
+        <button mat-menu-item routerLinkActive="active" [routerLink]="['/admin-page/stations']">
+          Stations
+        </button>
+        <button mat-menu-item routerLinkActive="active" [routerLink]="['/admin-page/carriages']">
+          Carriages
+        </button>
+        <button mat-menu-item routerLinkActive="active" [routerLink]="['/admin-page/routes']">
+          Routes
+        </button>
       </mat-menu>
     </div>
   </nav>

@@ -27,8 +27,6 @@ export class TripStationsComponent {
       allStations: Station[];
     },
   ) {
-    console.log({ data });
-
     let arrivalTime = new Date(data.schedule[0].time[0]).getTime();
     this.durations = data.schedule.map((seg) => {
       const pause = formatDuration(new Date(seg.time[0]).getTime() - arrivalTime);

@@ -1,6 +1,9 @@
+@import '@styles/variables.scss';
+
 .mat-expansion-panel-header.mat-expanded {
   height: 0px;
 }
 .mat-expansion-panel {
   width: 100%;
+  background-color: $white;
 }
