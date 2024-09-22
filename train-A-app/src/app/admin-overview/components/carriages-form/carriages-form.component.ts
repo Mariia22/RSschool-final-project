@@ -17,13 +17,24 @@ import {
 import { CarriageSchemaComponent } from 'app/shared/components/carriage-schema/carriage-schema.component';
 import { CarriageFacade } from 'app/admin-overview/_state/carriage/carriage.facade';
 import { CarriagesPanelService } from 'app/admin-overview/services/carriages-panel/carriages-panel.service';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-carriages-form',
   standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule, CarriageSchemaComponent, NgIf, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    MatButtonModule,
+    CarriageSchemaComponent,
+    NgIf,
+    CommonModule,
+    MatFormField,
+    MatLabel,
+    MatInputModule,
+  ],
   templateUrl: './carriages-form.component.html',
-  styleUrls: ['./carriages-form.component.scss', './../../../core/styles/common.scss'],
+  styleUrls: ['./carriages-form.component.scss', './../../../core/styles/mat-form-field.scss'],
 })
 export class CarriagesFormComponent implements OnInit, OnDestroy, AfterViewInit {
   private fb: FormBuilder = inject(FormBuilder);

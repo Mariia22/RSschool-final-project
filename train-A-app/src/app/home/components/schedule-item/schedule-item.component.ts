@@ -169,7 +169,6 @@ export class ScheduleItemComponent implements OnInit, OnDestroy {
       schedule: this.way.segments.slice(start, stop),
     };
     this.tripFacade.saveRide(ride);
-    console.log({ ride });
 
     this.router.navigate(['/trip', this.way.rideId], {
       queryParams: { from: this.startStopStations.start, to: this.startStopStations.stop },

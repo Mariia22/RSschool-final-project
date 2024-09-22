@@ -38,7 +38,7 @@ import { NotificationService } from 'app/core/services/notification/notification
   providers: [provideNativeDateAdapter()],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './search-trip.component.html',
-  styleUrl: './search-trip.component.scss',
+  styleUrls: ['./search-trip.component.scss', './../../../core/styles/mat-form-field.scss'],
 })
 export class SearchTripComponent implements OnDestroy {
   optionsFrom: Station[] = [];
