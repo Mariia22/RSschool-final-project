@@ -30,12 +30,13 @@ import { orderFeature } from './orders/_state/order/order.reducer';
 import { userFeature } from './orders/_state/user/user.reducer';
 import { OrderEffects } from './orders/_state/order/order.effets';
 import { UserEffects } from './orders/_state/user/user.effects';
+import { cacheInterceptor } from './shared/interceptors/cache.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withComponentInputBinding()),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, cacheInterceptor])),
     provideAnimationsAsync(),
     provideStore(),
     provideStore({ roleState: rolesReducer.reducer }),

@@ -82,7 +82,6 @@ export class UserProfilePageComponent implements OnInit, OnDestroy {
         this.notificationService.openFailureSnackBar(error);
       }
     });
-
     this.userProfile$.pipe(takeUntil(this.destroy$)).subscribe((user: UserProfile) => {
       this.userProfile = user;
     });
