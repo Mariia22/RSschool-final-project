@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { UserProfileService } from '../../user-profile/services/user-profile.service';
@@ -8,8 +7,6 @@ import { initialState } from '../_state/roles.reducer';
   providedIn: 'root',
 })
 export class RoleService {
-  private http: HttpClient = inject(HttpClient);
-
   private userRole = initialState;
 
   private userProfileService = inject(UserProfileService);
